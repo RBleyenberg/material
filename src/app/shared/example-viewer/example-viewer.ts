@@ -1,9 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ComponentPortal} from '@angular/cdk/portal';
-
-import {EXAMPLE_COMPONENTS, LiveExample} from '@angular/components-examples';
 import {CopierService} from '../copier/copier.service';
+import { LiveExample, EXAMPLE_COMPONENTS } from '@angular/components-examples';
 
 /** Regular expression that matches a file name and its extension */
 const fileExtensionRegex = /(.*)\.(\w+)/;

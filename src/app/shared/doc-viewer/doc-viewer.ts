@@ -1,24 +1,11 @@
-import {ComponentPortal, DomPortalOutlet} from '@angular/cdk/portal';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {DomSanitizer} from '@angular/platform-browser';
-import {
-  ApplicationRef,
-  Component,
-  ComponentFactoryResolver,
-  ElementRef,
-  EventEmitter,
-  Injector,
-  Input,
-  NgZone,
-  OnDestroy,
-  Output,
-  SecurityContext,
-  ViewContainerRef,
-} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {take} from 'rxjs/operators';
-import {ExampleViewer} from '../example-viewer/example-viewer';
-import {HeaderLink} from './header-link';
+import { ComponentPortal, DomPortalOutlet } from '@angular/cdk/portal';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ApplicationRef, Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, Output, SecurityContext, ViewContainerRef } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { ExampleViewer } from '../example-viewer/example-viewer';
+import { HeaderLink } from './header-link';
 
 @Component({
   selector: 'doc-viewer',
@@ -44,13 +31,13 @@ export class DocViewer implements OnDestroy {
   textContent = '';
 
   constructor(private _appRef: ApplicationRef,
-              private _componentFactoryResolver: ComponentFactoryResolver,
-              private _elementRef: ElementRef,
-              private _http: HttpClient,
-              private _injector: Injector,
-              private _viewContainerRef: ViewContainerRef,
-              private _ngZone: NgZone,
-              private _domSanitizer: DomSanitizer) {
+    private _componentFactoryResolver: ComponentFactoryResolver,
+    private _elementRef: ElementRef,
+    private _http: HttpClient,
+    private _injector: Injector,
+    private _viewContainerRef: ViewContainerRef,
+    private _ngZone: NgZone,
+    private _domSanitizer: DomSanitizer) {
   }
 
   /** Fetch a document by URL. */
@@ -60,7 +47,7 @@ export class DocViewer implements OnDestroy {
       this._documentFetchSubscription.unsubscribe();
     }
 
-    this._documentFetchSubscription = this._http.get(url, {responseType: 'text'}).subscribe(
+    this._documentFetchSubscription = this._http.get(url, { responseType: 'text' }).subscribe(
       document => this.updateDocument(document),
       error => this.showError(url, error)
     );
@@ -103,12 +90,12 @@ export class DocViewer implements OnDestroy {
   /** Instantiate a ExampleViewer for each example. */
   private _loadComponents(componentName: string, componentClass: any) {
     const exampleElements =
-        this._elementRef.nativeElement.querySelectorAll(`[${componentName}]`);
+      this._elementRef.nativeElement.querySelectorAll(`[${componentName}]`);
 
     Array.prototype.slice.call(exampleElements).forEach((element: Element) => {
       const example = element.getAttribute(componentName);
       const portalHost = new DomPortalOutlet(
-          element, this._componentFactoryResolver, this._appRef, this._injector);
+        element, this._componentFactoryResolver, this._appRef, this._injector);
       const examplePortal = new ComponentPortal(componentClass, this._viewContainerRef);
       const exampleViewer = portalHost.attach(examplePortal);
       if (example !== null) {
