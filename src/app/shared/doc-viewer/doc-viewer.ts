@@ -69,8 +69,8 @@ export class DocViewer implements OnDestroy {
     this._elementRef.nativeElement.innerHTML = rawDocument;
     this.textContent = this._elementRef.nativeElement.textContent;
 
-    this._loadComponents('material-docs-example', ExampleViewer);
-    this._loadComponents('header-link', HeaderLink);
+   // this._loadComponents('material-docs-example', ExampleViewer);
+   // this._loadComponents('header-link', HeaderLink);
 
     // Resolving and creating components dynamically in Angular happens synchronously, but since
     // we want to emit the output if the components are actually rendered completely, we wait

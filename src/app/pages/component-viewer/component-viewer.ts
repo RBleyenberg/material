@@ -35,8 +35,7 @@ export class ComponentViewer implements OnDestroy {
     // parent route for the section (material/cdk).
     combineLatest(routeAndParentParams).pipe(
       map((params: Params[]) => ({ id: params[0]['id'], section: params[1]['section'] })),
-      map((docIdAndSection: { id: string, section: string }) =>
-        ({
+      map((docIdAndSection: { id: string, section: string }) => ({
           doc: docItems.getItemById(docIdAndSection.id, docIdAndSection.section),
           section: docIdAndSection.section
         }), takeUntil(this._destroyed))
@@ -44,10 +43,6 @@ export class ComponentViewer implements OnDestroy {
       if (docItemAndSection.doc !== undefined) {
         this.componentDocItem.next(docItemAndSection.doc);
         this._componentPageTitle.title = `${docItemAndSection.doc.name}`;
-
-        docItemAndSection.doc.examples && docItemAndSection.doc.examples.length ?
-          this.sections.add('examples') :
-          this.sections.delete('examples');
 
         docItemAndSection.doc.additionalApiDocs && docItemAndSection.doc.additionalApiDocs.length ?
           this.sections.add('api') :

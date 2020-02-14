@@ -57,9 +57,6 @@ const DOCS: {[key: string]: DocCategory[]} = {
           id: 'autocomplete',
           name: 'Relaties',
           summary: 'Suggests relevant options as the user types.',
-          examples: [
-            'autocomplete-overview'
-          ],
           additionalApiDocs: [{name: 'Testing', path: 'material-autocomplete.html'}],
         }
       ]
