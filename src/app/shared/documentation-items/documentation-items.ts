@@ -10,7 +10,6 @@ export interface DocItem {
   name: string;
   summary?: string;
   packageName?: string;
-  examples?: string[];
   apiDocId?: string;
   additionalApiDocs?: AdditionalApiDoc[];
 }
@@ -72,88 +71,56 @@ const DOCS: {[key: string]: DocCategory[]} = {
           id: 'a11y',
           name: 'Accessibility',
           summary: 'Utilities for screen readers, focus and more.',
-          examples: []
         },
         {
           id: 'bidi',
           name: 'Bidirectionality',
           summary: 'Utilities to respond to changes in LTR/RTL layout direction.',
-          examples: []
         },
         {
           id: 'clipboard',
           name: 'Clipboard',
-          summary: 'Helpers for working with the system clipboard.',
-          examples: [
-            'cdk-clipboard-overview'
-          ]
+          summary: 'Helpers for working with the system clipboard.'
         },
         {
           id: 'drag-drop',
           name: 'Drag and Drop',
           summary: 'Directives enabling drag-and-drop interactions',
-          examples: [
-            'cdk-drag-drop-overview',
-            'cdk-drag-drop-axis-lock',
-            'cdk-drag-drop-boundary',
-            'cdk-drag-drop-connected-sorting',
-            'cdk-drag-drop-connected-sorting-group',
-            'cdk-drag-drop-custom-placeholder',
-            'cdk-drag-drop-custom-preview',
-            'cdk-drag-drop-delay',
-            'cdk-drag-drop-disabled',
-            'cdk-drag-drop-disabled-sorting',
-            'cdk-drag-drop-enter-predicate',
-            'cdk-drag-drop-free-drag-position',
-            'cdk-drag-drop-handle',
-            'cdk-drag-drop-horizontal-sorting',
-            'cdk-drag-drop-root-element',
-            'cdk-drag-drop-sorting'
-          ],
         },
         {
           id: 'layout',
           name: 'Layout',
           summary: 'Utilities to respond to changes in viewport size.',
-          examples: []
         },
         {
           id: 'observers',
           name: 'Observers',
           summary: 'Utilities to respond to changes to element properties.',
-          examples: []
         },
         {
           id: 'overlay',
           name: 'Overlay',
           summary: 'Utilities for dynamically displaying floating content.',
-          examples: []
         },
         {
           id: 'platform',
           name: 'Platform',
           summary: 'Provides information about the user\'s platform.',
-          examples: [
-            'cdk-platform-overview',
-          ]
         },
         {
           id: 'portal',
           name: 'Portal',
           summary: 'Utilities for dynamically displaying content into a target.',
-          examples: []
         },
         {
           id: 'scrolling',
           name: 'Scrolling',
           summary: 'Directives for managing scroll events.',
-          examples: []
         },
         {
           id: 'text-field',
           name: 'Text field',
           summary: 'Utilities for working with text input fields.',
-          examples: []
         },
       ]
     },
@@ -166,26 +133,16 @@ const DOCS: {[key: string]: DocCategory[]} = {
           id: 'stepper',
           name: 'Stepper',
           summary: 'Presents content as steps through which to progress.',
-          examples: [
-            'stepper-vertical',
-            'stepper-editable',
-            'stepper-optional',
-            'stepper-errors',
-            'stepper-label-position-bottom',
-            'stepper-states'
-          ]
         },
         {
           id: 'table',
           name: 'Table',
           summary: 'A configurable component for displaying tabular data.',
-          examples: []
         },
         {
           id: 'tree',
           name: 'Tree',
           summary: 'Presents hierarchical content as an expandable tree.',
-          examples: []
         },
       ]
     },
@@ -198,7 +155,6 @@ const DOCS: {[key: string]: DocCategory[]} = {
           id: 'test-harnesses',
           name: 'Component Harnesses',
           summary: 'Foundation for component test harnesses.',
-          examples: [],
           apiDocId: 'cdk-testing',
           additionalApiDocs: [
             {

@@ -1,6 +1,4 @@
 import {DocViewer} from './doc-viewer';
-import {ExampleViewer} from '../example-viewer/example-viewer';
-import {StackBlitzButtonModule} from '../stack-blitz';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -10,7 +8,6 @@ import {PortalModule} from '@angular/cdk/portal';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {HeaderLink} from './header-link';
-import {CopierService} from '../copier/copier.service';
 
 
 // ExampleViewer is included in the DocViewerModule because they have a circular dependency.
@@ -22,12 +19,11 @@ import {CopierService} from '../copier/copier.service';
     MatTooltipModule,
     MatSnackBarModule,
     MatTabsModule,
-    PortalModule,
-    StackBlitzButtonModule
+    PortalModule
   ],
-  providers: [CopierService],
-  declarations: [DocViewer, ExampleViewer, HeaderLink],
-  entryComponents: [ExampleViewer, HeaderLink],
-  exports: [DocViewer, ExampleViewer, HeaderLink],
+  providers: [],
+  declarations: [DocViewer, HeaderLink],
+  entryComponents: [HeaderLink],
+  exports: [DocViewer, HeaderLink],
 })
 export class DocViewerModule { }

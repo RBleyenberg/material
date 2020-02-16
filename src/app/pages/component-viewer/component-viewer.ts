@@ -19,7 +19,7 @@ import { ComponentPageTitle } from '../page-title/page-title';
 })
 export class ComponentViewer implements OnDestroy {
   componentDocItem = new ReplaySubject<DocItem>(1);
-  sections: Set<string> = new Set([]);
+  sections: Set<string> = new Set(['overview', 'api']);
   private _destroyed = new Subject();
 
   constructor(_route: ActivatedRoute,
@@ -43,14 +43,6 @@ export class ComponentViewer implements OnDestroy {
       if (docItemAndSection.doc !== undefined) {
         this.componentDocItem.next(docItemAndSection.doc);
         this._componentPageTitle.title = `${docItemAndSection.doc.name}`;
-
-        docItemAndSection.doc.additionalApiDocs && docItemAndSection.doc.additionalApiDocs.length ?
-          this.sections.add('api') :
-          this.sections.delete('api');
-
-        docItemAndSection.doc.summary && docItemAndSection.doc.summary.length ?
-          this.sections.add('overview') :
-          this.sections.delete('overview');
       } else {
         this.router.navigate(['/' + docItemAndSection.section]);
       }
@@ -132,17 +124,6 @@ export class ComponentApi extends ComponentBaseView {
   }
 }
 
-@Component({
-  selector: 'component-examples',
-  templateUrl: './component-examples.html',
-  encapsulation: ViewEncapsulation.None,
-})
-export class ComponentExamples extends ComponentBaseView {
-  constructor(componentViewer: ComponentViewer, breakpointObserver: BreakpointObserver) {
-    super(componentViewer, breakpointObserver);
-  }
-}
-
 @NgModule({
   imports: [
     MatTabsModule,
@@ -152,7 +133,7 @@ export class ComponentExamples extends ComponentBaseView {
     TableOfContentsModule,
   ],
   exports: [ComponentViewer],
-  declarations: [ComponentViewer, ComponentOverview, ComponentApi, ComponentExamples],
+  declarations: [ComponentViewer, ComponentOverview, ComponentApi],
   providers: [DocumentationItems],
 })
 export class ComponentViewerModule { }
