@@ -31,7 +31,7 @@
     "@angular/common": "9.0.0",
     "@angular/compiler": "9.0.0",
     "@angular/components-examples": "angular/material2-docs-content#9.0.x",
-    "@angular/core": "9.0.0",
+    "@angular/core": "10.2.5",
     "@angular/forms": "9.0.0",
     "@angular/google-maps": "9.0.0",
     "@angular/material": "9.0.0",
